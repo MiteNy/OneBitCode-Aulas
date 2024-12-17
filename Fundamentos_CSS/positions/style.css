@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+}
+body {
+    background-color: #707070;
+    block-size: 80rem;
+    margin: 5rem ;
+}
+
+h2 {
+    text-align: center;
+    color: #fff;
+    border-color:  black;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 1px;
+    text-transform: uppercase;
+}
+
+.static {
+    background-color: aquamarine;
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
+.relative {
+    background-color: blueviolet;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    position: relative;
+    top: 2rem;
+}
+.fixed {
+    background-color: rgb(43, 255, 0);
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
+.sticky {
+    background-color: #fbff00;
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
+
+.absolute {
+    background-color: red;
+    margin-left: 10rem;
+    margin-right: 10rem;
+}

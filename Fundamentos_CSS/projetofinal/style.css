@@ -1,0 +1,176 @@
+:root{
+    --cor-laranja:#FFA403;
+    scroll-behavior: smooth;
+}
+
+*,a:visited {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", serif;
+    box-sizing: border-box;
+    color: currentColor;
+}
+
+header{
+    object-position: center;
+    height: 80vh;
+    text-align: center;
+    color: #fff;
+}
+.header-background{
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+    height: 80vh;
+    left: 0;
+    z-index: -10;
+    object-position: top;
+    min-height: 80vh;
+}
+.menu{
+    background-color: #232323;
+    color: #fff;
+    font-weight: 400;
+    width: 100%;
+    height: 3rem;
+    text-decoration: none;
+}
+.menu li {
+    display: inline-block;
+    padding: 1rem;
+}
+.header-foreground {
+    padding-top: 20vh;
+}
+.header-foreground h1{
+    margin-bottom: 1rem;
+    font-weight: 100;
+    font-size: 3rem;
+    border-style: ;
+}
+.Buttom {
+    margin-top: 1rem;
+    background-color: #FFA403;
+    border-style: none;
+    padding: .60rem;
+    font-weight: 600;
+    border-radius: 5px;
+}
+.cardapio {
+    position: relative;
+    top: 5rem;
+    text-align: left;
+    margin-left: 32vh;
+    margin-right: 32vh;
+}
+.cardapio h2{
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.cardapio h3 {
+    margin: .5rem;
+    font-size: 1.1rem;
+}
+.cardapio p {
+    margin-left: .5rem;
+    margin-bottom: 1rem;
+
+}
+.cardapio img{
+    width: 20rem;
+}
+.item-cardapio{
+    display: inline-block;
+    background-color: #EAEAEA;
+    overflow: hidden;
+    width: 20rem;
+    margin: 1rem;
+    border-radius: .5rem;
+    box-shadow: 5px 5px 10px rgba(0, 0 , 0, .25);
+}
+
+#sobre{
+    top: 9rem;
+    color: #ffffff;
+    position: relative;
+    width:100vw;
+    height: 25vh;
+    text-align: center;
+    min-width: 100vh;
+    background: linear-gradient(rgba(0,0,0,0) 10%,#000000);
+}
+#sobre > img{
+    object-fit: cover;
+    height: 25vh;
+    width: 100%;
+    position: absolute;
+    z-index: -10;
+    left: 0;
+}
+.sobre-texto p{
+    padding-top: 2rem;
+}
+.sobre-texto h1{
+    padding-top: 2.5rem;
+    font-size: 2rem;
+}
+#contato{
+    margin-top: 13rem;
+    position: relative;
+    margin-bottom: 3rem;
+
+}
+#contato > div * {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.endereco::before{
+    content: "Endereço: ";
+    color: #000000;
+    font-weight: 600;
+}
+.telefone::before{
+    content: "Telefone: ";
+    color: #000000;
+    font-weight: 600;
+}
+.email::before{
+    content: "Email: ";
+    color: #000000;
+    font-weight: 600;
+}
+.funcionamento::before{
+    content: "Horário de funcionamento: ";
+    color: #000000;
+    font-weight: 600;
+}
+
+address *{
+    display: inline-block;
+    margin-right: 1rem;
+}
+.endereco{
+    width: 20rem;
+}
+address div{
+    width: 16rem;
+    /* overflow: hidden; */
+}
+address div a{
+
+    color: var(--cor-laranja);
+}
+
+address{
+    margin-left: 35vh;
+}
+#rodape > a{
+    color: var(--cor-laranja);
+    background-color: #232323;
+    height: 3rem;
+    position: absolute;
+    width:100vw;
+    text-align: center;
+    padding: 1rem;
+}
