@@ -1,12 +1,12 @@
 let menu
 let vagas = [
-    { nome: "Assistente ADM", descricao: "Ensino superior em administração", dataLimite: "24/12/2024" },
-    { nome: "Analista Financeiro", descricao: "Ensino superior em contabilidade", dataLimite: "30/12/2024" },
-    { nome: "Desenvolvedor Web", descricao: "Conhecimentos em HTML, CSS, e JavaScript", dataLimite: "15/01/2025" },
-    { nome: "Engenheiro de Dados", descricao: "Ensino superior em ciência da computação", dataLimite: "01/02/2025" },
-    { nome: "Designer Gráfico", descricao: "Experiência em ferramentas de design", dataLimite: "10/01/2025" },
-    { nome: "Consultor de Vendas", descricao: "Habilidade em negociação e comunicação", dataLimite: "31/12/2024" },
-    { nome: "Técnico em TI", descricao: "Ensino técnico em informática", dataLimite: "20/12/2024" }
+    {id:0, nome: "Assistente ADM", descricao: "Ensino superior em administração", dataLimite: "24/12/2024" },
+    {id:1, nome: "Analista Financeiro", descricao: "Ensino superior em contabilidade", dataLimite: "30/12/2024" },
+    {id:2, nome: "Desenvolvedor Web", descricao: "Conhecimentos em HTML, CSS, e JavaScript", dataLimite: "15/01/2025" },
+    {id:3, nome: "Engenheiro de Dados", descricao: "Ensino superior em ciência da computação", dataLimite: "01/02/2025" },
+    {id:4, nome: "Designer Gráfico", descricao: "Experiência em ferramentas de design", dataLimite: "10/01/2025" },
+    {id:5, nome: "Consultor de Vendas", descricao: "Habilidade em negociação e comunicação", dataLimite: "31/12/2024" },
+    {id:6, nome: "Técnico em TI", descricao: "Ensino técnico em informática", dataLimite: "20/12/2024" }
     ]
 let candidatos= [
     {curso:1 ,aluno:"João"},
@@ -42,15 +42,14 @@ do {
 // Opção 1
 function listarVagas(){
     let lista = ""
-    vagas.forEach((vaga,index) => lista+=(index+" - "+ vaga.nome +' - '+ candidatos.filter(qtdAluno => qtdAluno.curso == index ).length+' Candidatos\n'));
+    vagas.forEach((vaga,index) => lista+=(index+" - "+ vaga.nome +' - '+ candidatos.filter(qtdAluno => qtdAluno.curso == vaga.id ).length+' Candidatos\n'));
     return lista
 }
 // Opção 2
 function criarVaga(){
     let cadastro=[]
-    cadastro.push({nome:prompt("Nome:"),descricao:prompt("Descrição:"),dataLimite:prompt("Data Limite:")})
-    console.log(cadastro)
-    confirm("Confirmar vaga? \nNome:"+ cadastro[0].nome+ "\nDescrição: "+cadastro[0].descricao+ "\nData Limite: "+cadastro[0].dataLimite)? vagas.push(cadastro[0]):
+    cadastro.push({id:vagas.length,nome:prompt("Nome:"),descricao:prompt("Descrição:"),dataLimite:prompt("Data Limite:")})
+    confirm("Confirmar vaga? \nNome:"+ cadastro[0].nome+ "\nDescrição: "+cadastro[0].descricao+ "\nData Limite: "+cadastro[0].dataLimite)? vagas.push(cadastro[0]):vagas
     console.log(vagas)
 }
 // Opção 3
@@ -66,9 +65,7 @@ function visualizarVaga(nomescandidatos="\nAlunos:"){
 // Opção 4
 function inscreverCandidato(){
     let cadastro=[]
-    alert(listarVagas())
-    cadastro.push({curso:prompt("Índice do curso:"),aluno:prompt("Nome do aluno: ")})
-    console.log(cadastro)
+    cadastro.push({curso:prompt(listarVagas()+"Índice do curso:"),aluno:prompt("Nome do aluno: ")})
     confirm("Confirmar vaga? \nÍndice do curso: "+ cadastro[0].curso+ "\nNome do aluno: "+cadastro[0].aluno)? candidatos.push(cadastro[0]):
     console.log(candidatos)
 }
@@ -76,6 +73,6 @@ function inscreverCandidato(){
 
 function excluirVaga(){
     let cadastro=parseFloat(prompt("Digite qual curso deseja deletar:\n"+listarVagas()))
-    confirm("Deletar vaga e seus candidatos? \nNome:"+ vagas[0].nome+ "\nDescrição: "+vagas[0].descricao+ "\nData Limite: "+vagas[0].dataLimite)? vagas[cadastro]:
+    confirm("Deletar vaga e seus candidatos? \nNome:"+ vagas[cadastro].nome+ "\nDescrição: "+vagas[cadastro].descricao+ "\nData Limite: "+vagas[cadastro].dataLimite)? vagas.splice(cadastro,1):
     console.log(vagas)
 }
