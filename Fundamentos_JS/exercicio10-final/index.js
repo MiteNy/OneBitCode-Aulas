@@ -19,10 +19,10 @@ do {
     menu = parseFloat(prompt('Opções: \n 1 - Listar vagas \n 2 - Criar uma nova vaga \n 3 - Visualizar uma vaga \n 4 - Inscrever um candidato em uma vaga \n 5 - Excluir uma vaga \n 6 - Sair'))
     switch (menu){
         case 1:
-            listarVagas(vagas)
+            alert(listarVagas(vagas))
             break
         case 2:
-            criarVaga()
+            criarVaga(vagas)
             break  
         case 3:
             visualizarVaga()
@@ -41,17 +41,41 @@ do {
 } while (menu !== 6);
 // Opção 1
 function listarVagas(){
-    vagas.forEach((vaga,index) => console.log(index+" - "+ vaga.nome +' - '+ candidatos.filter(qtdAluno => qtdAluno.curso == index ).length+' Candidatos'));
+    let lista = ""
+    vagas.forEach((vaga,index) => lista+=(index+" - "+ vaga.nome +' - '+ candidatos.filter(qtdAluno => qtdAluno.curso == index ).length+' Candidatos\n'));
+    return lista
 }
-
+// Opção 2
 function criarVaga(){
-    cadastro+=[{nome:prompt("Nome:"),descricao:prompt("Descrição:"),dataLimite:prompt("Data Limite:")}]
+    let cadastro=[]
+    cadastro.push({nome:prompt("Nome:"),descricao:prompt("Descrição:"),dataLimite:prompt("Data Limite:")})
     console.log(cadastro)
-    // alert("Confirmar vaga? \nNome:"+ cadastro.nome+ "\nDescrição: "+cadastro.descricao+ "\nData Limite: "+cadastro.dataLimite)? vagas.push(cadastro):criarVaga()
+    confirm("Confirmar vaga? \nNome:"+ cadastro[0].nome+ "\nDescrição: "+cadastro[0].descricao+ "\nData Limite: "+cadastro[0].dataLimite)? vagas.push(cadastro[0]):
+    console.log(vagas)
 }
+// Opção 3
+function visualizarVaga(nomescandidatos="\nAlunos:"){
+    let escolha = parseFloat(prompt(listarVagas()))
+    candidatos.forEach(candidatoVaga => candidatoVaga.curso == escolha? nomescandidatos+=("\n"+candidatoVaga.aluno):candidatoVaga);
+    alert(vagas[escolha].nome+"\n"+"Descrição: "+vagas[escolha].descricao+"\n"+"Data Limite: "+vagas[escolha].dataLimite+nomescandidatos)
 
-function visualizarVaga(){
-    vagas.forEach(vaga => {
-        alert("Nome: "+vaga.nome+ "\nDescrição: " +vaga.descricao+" \nData limite para inscrição: "+ vaga.dataLimite)
-    });
+    // vagas.forEach(vaga => {
+    //     alert("Nome: "+vaga.nome+ "\nDescrição: " +vaga.descricao+" \nData limite para inscrição: "+ vaga.dataLimite)
+    // });
+}
+// Opção 4
+function inscreverCandidato(){
+    let cadastro=[]
+    alert(listarVagas())
+    cadastro.push({curso:prompt("Índice do curso:"),aluno:prompt("Nome do aluno: ")})
+    console.log(cadastro)
+    confirm("Confirmar vaga? \nÍndice do curso: "+ cadastro[0].curso+ "\nNome do aluno: "+cadastro[0].aluno)? candidatos.push(cadastro[0]):
+    console.log(candidatos)
+}
+// Opção 5
+
+function excluirVaga(){
+    let cadastro=parseFloat(prompt("Digite qual curso deseja deletar:\n"+listarVagas()))
+    confirm("Deletar vaga e seus candidatos? \nNome:"+ vagas[0].nome+ "\nDescrição: "+vagas[0].descricao+ "\nData Limite: "+vagas[0].dataLimite)? vagas[cadastro]:
+    console.log(vagas)
 }
