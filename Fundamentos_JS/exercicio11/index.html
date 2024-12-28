@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escalação</title>
+    <script src="index.js"></script>
+</head>
+<body>
+    <h1>Escalação</h1>
+    <form id="form1" action="">
+        <label for="position">Posição: </label>
+        <input id="position" type="text" name="position">
+        <br><br>
+        <label for="nome">Nome: </label>
+        <input id="nome" type="text">
+        <br><br>
+        <label for="shirtnum">Numero da camisa: </label>
+        <input id="shirtnum" type="text">
+        <br>
+    </form>
+
+        <button onclick="escalar()">Escalar</button>
+
+        <hr>
+        <div id="escalacao">
+            <h1>Jogadores escalados</h1>
+        </div>
+        <hr>
+        <form action="" >
+            <label for="numero">Numero da camisa: </label>
+            <input id="numero" type="text" name="numero">
+            <br>
+            <button onclick="remover()" >Remover</button>
+        </form>
+    </section>
+</body>
+</html>
