@@ -49,6 +49,5 @@ function removertime(){
         remover.remove()
         console.log(escolha)
     }
-    
-document.querySelector('#numero').value=''
+    ent.querySelector('#numero').value=''
 }
