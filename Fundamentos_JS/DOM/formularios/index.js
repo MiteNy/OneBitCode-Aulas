@@ -1,6 +1,10 @@
 const form = document.getElementById('orderForm')
+
+
 form.addEventListener("submit", ev=>{ 
     ev.preventDefault()
+    let form1 = document.getElementById('name').value
+    console.log(form1)
     const nameform =document.querySelector("input[name='name']").value
     const addressform =document.querySelector("input[name='address']").value
     const breadform =document.querySelector("select[name='breadType']").value
